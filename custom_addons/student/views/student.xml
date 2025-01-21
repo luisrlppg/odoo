@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="student.tree">
+            <field name="name">student tree</field>
+            <field name="model">student.student</field>
+            <field arch="arch" type="xml">
+                <tree>
+                    <field name="name1"/>
+                    <field name="name2"/>
+                    <field name="name3"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="student.form">
+            <field model="model">student.student</field>
+            <field name="name">student form</field>
+            <field arch="arch" type="xml">
+                <form>
+                    <field name="name1"/>
+                    <field name="name2"/>
+                    <field name="name3"/>
+                    <field name="name4"/>
+                </form>
+            </field>
+        </record>
+        <!-- Actions -->
+        <!--
+            <field name="view_mode">view1,view2,view3</field>
+        -->
+        <record model="ir.actions.act_window" id="student.action_window">
+          <field name="name">student window</field>
+          <field name="res_model">student.student</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+        <!--
+            Student ->
+                PPGLearns ->
+                    Student List
+         -->
+        <!-- Top menu item -->
+        <menuitem name="Student" id="student.menu_root" />
+        <!-- menu categories -->
+        <menuitem name="Learning" id="student.submenu1" parent="student.menu_root"/>
+        <!-- actions -->
+        <menuitem name="Student List" id="student.list_menu"  parent="student.submenu1" action="student.action_window"/>
+
+    </data>
+</odoo>
